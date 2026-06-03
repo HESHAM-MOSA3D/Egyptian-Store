@@ -2,6 +2,16 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { productDemoImage } from "../lib/product-images";
 
+if (
+  process.env.NODE_ENV === "production" &&
+  process.env.ALLOW_SEED !== "true"
+) {
+  console.error(
+    "Seed معطّد في الإنتاج. للبيانات التجريبية على سيرفر تجريبي فقط: ALLOW_SEED=true npx prisma db seed"
+  );
+  process.exit(1);
+}
+
 const prisma = new PrismaClient();
 
 function images(seed: string) {

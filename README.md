@@ -323,7 +323,9 @@ npm test
 ### متى يعمل على Hostinger؟
 
 - إذا كانت خطتك تدعم **تطبيق Node.js** (حسب ما توفره Hostinger في لوحتك).
+- اتبع **[PRODUCTION_CHECKLIST.md](./PRODUCTION_CHECKLIST.md)** لخطوات ما قبل/بعد النشر واختبار القبول.
 - اتبع **[DEPLOYMENT.md](./DEPLOYMENT.md)** للخطوات التفصيلية بالعربية: المتغيرات، `migrate deploy`, البناء، النسخ الاحتياطي لـ SQLite.
+- قالب إنتاج: **[`.env.production.example`](./.env.production.example)** — أوامر: `npm run deploy:checklist`, `npm run deploy:prepare`, `npm run start:prod`.
 
 ### بدائل إن لم يتوفر Node على Hostinger
 

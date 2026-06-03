@@ -205,6 +205,8 @@ npm start
 
 ## 10. مراجع داخل المشروع
 
-- `README.md` — تشغيل محلي وملخص النشر بالإنجليزية
-- `.env.example` — قالب المتغيرات
-- `package.json` — أوامر `build`, `start`, `db:migrate`, `db:seed`
+- `PRODUCTION_CHECKLIST.md` — قائمة تحقق عربية (ما قبل/بعد النشر + 3 مسارات + اختبار قبول)
+- `README.md` — تشغيل محلي وملخص النشر
+- `.env.example` — قالب التطوير
+- `.env.production.example` — قالب الإنتاج الكامل
+- `package.json` — أوامر `build`, `postbuild`, `start:prod`, `deploy:prepare`, `deploy:checklist`, `db:migrate:deploy`
