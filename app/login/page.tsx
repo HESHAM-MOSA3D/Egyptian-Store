@@ -80,7 +80,7 @@ function LoginForm() {
             autoComplete="tel"
             dir="ltr"
             className="text-left"
-            placeholder="9639xxxxxxxx"
+            placeholder="201234567890"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
