@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { lineTotalSyp, usdToSyp } from "../lib/pricing.ts";
+import { lineTotalSyp, usdToSyp } from "../lib/pricing.js";
 
 describe("usdToSyp", () => {
   it("10 USD × 15000 → 150000 (nearest 1000)", () => {

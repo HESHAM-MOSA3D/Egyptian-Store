@@ -358,7 +358,7 @@ export function LandingPage({
             جاهز لطلبيتك القادمة؟
           </h2>
           <p className="mt-2 text-teal-700">
-            افتح الكتالوج من جوالك أو تواصل معنا مباشرة
+            افتح الكتالوج من موبايلك أو تواصل معانا مباشرة
           </p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild size="lg">
@@ -426,7 +426,7 @@ export function LandingPage({
             </div>
           </div>
           <p className="mt-8 border-t border-teal-100 pt-6 text-center text-xs text-teal-600">
-            © {new Date().getFullYear()} {storeName}. عرض تجريبي — جميع الحقوق
+            © {new Date().getFullYear()} {storeName}. عرض تجريبي — صمم بواسطة هشام مسعد احمد حسين — جميع الحقوق
             محفوظة.
           </p>
         </div>
