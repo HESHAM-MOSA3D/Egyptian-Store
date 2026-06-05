@@ -98,7 +98,7 @@ export default function RegisterPage() {
             autoComplete="tel"
             dir="ltr"
             className="text-left"
-            placeholder="9639xxxxxxxx"
+            placeholder="+2010xxxxxxxx"
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
             required
