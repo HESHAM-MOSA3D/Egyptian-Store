@@ -75,7 +75,7 @@ export default function BulkPricingPage() {
     <div>
       <AdminPageHeader
         title="تسعير جماعي"
-        description="زيادة أو خفض الأسعار بالدولار مع معاينة السعر بالليرة بعد الصرف والتقريب"
+        description="زيادة أو خفض الأسعار بالدولار مع معاينة السعر بالجنيه بعد الصرف والتقريب"
       />
 
       <Card className="mb-6 max-w-xl border-teal-100">
@@ -157,7 +157,7 @@ export default function BulkPricingPage() {
                   <th className="px-3 py-2">المتغير</th>
                   <th className="px-3 py-2">USD قديم</th>
                   <th className="px-3 py-2">USD جديد</th>
-                  <th className="px-3 py-2">ل.س للعميل</th>
+                  <th className="px-3 py-2">ج.م للعميل</th>
                 </tr>
               </thead>
               <tbody>
@@ -172,7 +172,7 @@ export default function BulkPricingPage() {
                       ${row.newPriceUsd.toFixed(2)}
                     </td>
                     <td className="px-3 py-2">
-                      {row.priceSyp.toLocaleString("ar-SY")} ل.س
+                      {row.priceSyp.toLocaleString("ar-EG")} ج.م
                     </td>
                   </tr>
                 ))}

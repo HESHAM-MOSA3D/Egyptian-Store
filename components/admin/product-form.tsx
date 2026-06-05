@@ -187,7 +187,7 @@ export function ProductForm({ productId }: { productId?: string }) {
             }
           />
           <p className="mt-1 text-sm text-primary">
-            معاينة: {previewSyp.toLocaleString("ar-SY")} ل.س
+            معاينة: {previewSyp.toLocaleString("ar-EG")} ج.م
           </p>
         </div>
         {!form.hasVariants && (

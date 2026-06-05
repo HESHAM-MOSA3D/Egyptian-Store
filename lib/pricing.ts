@@ -1,6 +1,6 @@
 export type RoundingModeKey = "NEAREST_500" | "NEAREST_1000";
 
-export function usdToSyp(
+export function usdToEgp(
   priceUsd: number,
   rate: number,
   mode: RoundingModeKey
@@ -10,11 +10,17 @@ export function usdToSyp(
   return Math.round(raw / step) * step;
 }
 
-export function lineTotalSyp(
+// alias for backward compat
+export const usdToSyp = usdToEgp;
+
+export function lineTotalEgp(
   unitPriceUsd: number,
   quantity: number,
   rate: number,
   mode: RoundingModeKey
 ): number {
-  return usdToSyp(unitPriceUsd, rate, mode) * quantity;
+  return usdToEgp(unitPriceUsd, rate, mode) * quantity;
 }
+
+// alias for backward compat
+export const lineTotalSyp = lineTotalEgp;

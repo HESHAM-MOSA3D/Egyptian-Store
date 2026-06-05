@@ -28,7 +28,7 @@ export function ShopNav({
               {storeName}
             </span>
             <span className="text-[11px] text-teal-600 sm:text-xs">
-              كتالوج الجملة — الأسعار بالليرة السورية
+              كتالوج الجملة — الأسعار بالجنيه المصري
             </span>
           </Link>
           <button

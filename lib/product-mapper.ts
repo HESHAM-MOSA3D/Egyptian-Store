@@ -24,10 +24,10 @@ function buildPriceLabel(
 ): string {
   const unique = [...new Set(prices.map((p) => usdToSyp(p, rate, mode)))];
   if (unique.length <= 1) {
-    return `${unique[0]?.toLocaleString("ar-SY") ?? "0"} ل.س`;
+    return `${unique[0]?.toLocaleString("ar-EG") ?? "0"} ج.م`;
   }
   const min = Math.min(...unique);
-  return `من ${min.toLocaleString("ar-SY")} ل.س`;
+  return `من ${min.toLocaleString("ar-EG")} ج.م`;
 }
 
 export function mapProductToPublic(
@@ -68,7 +68,7 @@ export function mapProductToPublic(
     });
   } else {
     priceSyp = usdToSyp(product.priceUsd, rate, mode);
-    priceLabel = `${priceSyp.toLocaleString("ar-SY")} ل.س`;
+    priceLabel = `${priceSyp.toLocaleString("ar-EG")} ج.م`;
   }
 
   const uiState =

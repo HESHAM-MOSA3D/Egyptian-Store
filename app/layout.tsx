@@ -11,7 +11,7 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   title: "كتالوج الجملة — عناية وتجميل B2B",
-  description: "كتالوج جملة عربي — طلبات عبر واتساب، أسعار بالليرة السورية",
+  description: "كتالوج جملة عربي — طلبات عبر واتساب، أسعار بالجنيه المصري",
 };
 
 export default function RootLayout({

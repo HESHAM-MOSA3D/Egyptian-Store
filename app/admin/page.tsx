@@ -138,7 +138,7 @@ export default function AdminDashboardPage() {
           label="سعر الصرف"
           value={
             stats
-              ? `${stats.usdToSypRate.toLocaleString("ar-SY")} ل.س`
+              ? `${stats.usdToSypRate.toLocaleString("ar-EG")} ج.م`
               : "—"
           }
           hint="لكل 1 USD"

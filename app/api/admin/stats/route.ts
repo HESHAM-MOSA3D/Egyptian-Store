@@ -17,7 +17,7 @@ export async function GET() {
   const outOfStockCount = products.filter((p) => !isProductInStock(p)).length;
 
   const roundingLabel =
-    settings.roundingMode === "NEAREST_500" ? "500 ل.س" : "1000 ل.س";
+    settings.roundingMode === "NEAREST_500" ? "500 ج.م" : "1000 ج.م";
 
   return NextResponse.json({
     productCount,

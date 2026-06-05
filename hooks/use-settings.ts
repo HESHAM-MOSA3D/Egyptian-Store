@@ -5,7 +5,7 @@ import type { PublicSettings } from "@/lib/types";
 
 const defaultSettings: PublicSettings = {
   storeNameAr: "مركز التجميل",
-  usdToSypRate: 15000,
+  usdToSypRate: 50,
   roundingMode: "NEAREST_1000",
   whatsappNumber: "963911223344",
   deliveryNoteAr: null,

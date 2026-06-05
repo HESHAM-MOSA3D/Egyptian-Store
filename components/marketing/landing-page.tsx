@@ -28,7 +28,7 @@ import type { PublicProduct, PublicSettings } from "@/lib/types";
 const trustFeatures = [
   {
     icon: BadgePercent,
-    title: "أسعار واضحة بالليرة السورية",
+    title: "أسعار واضحة بالجنيه المصري",
     desc: "عرض مباشر للأسعار بعد التحويل والتقريب — بدون مفاجآت عند الطلب.",
   },
   {
@@ -273,7 +273,7 @@ export function LandingPage({
                 منتجات مميزة
               </h2>
               <p className="mt-2 text-sm text-teal-700">
-                عيّنة من منتجات العرض — الأسعار بالليرة السورية
+                عيّنة من منتجات العرض — الأسعار بالجنيه المصري
               </p>
             </div>
             <Button asChild variant="outline">
@@ -331,7 +331,7 @@ export function LandingPage({
               <div className="space-y-4">
                 {[
                   { label: "متوسط وقت الطلب", value: "دقائق" },
-                  { label: "عملة العرض", value: "ليرة سورية" },
+                  { label: "عملة العرض", value: "جنيه مصري" },
                   { label: "قناة التأكيد", value: "واتساب" },
                 ].map(({ label, value }) => (
                   <div

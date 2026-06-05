@@ -21,9 +21,12 @@ export function stringifyImages(urls: string[]): string {
   return JSON.stringify(urls.filter(Boolean));
 }
 
-export function formatSyp(amount: number): string {
-  return `${amount.toLocaleString("ar-SY")} ل.س`;
+export function formatEgp(amount: number): string {
+  return `${amount.toLocaleString("ar-EG")} ج.م`;
 }
+
+// alias for backward compat
+export const formatSyp = formatEgp;
 
 /** Cart / order display: "صابون طبيعي - فحم" */
 export function formatCartItemTitle(

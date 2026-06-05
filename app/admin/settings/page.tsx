@@ -14,7 +14,7 @@ export default function AdminSettingsPage() {
   const [form, setForm] = useState({
     storeNameAr: "",
     storeDescriptionAr: "",
-    usdToSypRate: 15000,
+    usdToSypRate: 50,
     roundingMode: "NEAREST_1000",
     whatsappNumber: "",
     deliveryNoteAr: "",
@@ -78,7 +78,7 @@ export default function AdminSettingsPage() {
             />
           </div>
           <div>
-            <Label>سعر صرف USD → SYP</Label>
+            <Label>سعر صرف USD → EGP</Label>
             <Input
               type="number"
               value={form.usdToSypRate}
@@ -95,8 +95,8 @@ export default function AdminSettingsPage() {
                 setForm({ ...form, roundingMode: e.target.value })
               }
             >
-              <option value="NEAREST_1000">أقرب 1000 ل.س</option>
-              <option value="NEAREST_500">أقرب 500 ل.س</option>
+              <option value="NEAREST_1000">أقرب 1000 ج.م</option>
+              <option value="NEAREST_500">أقرب 500 ج.م</option>
             </Select>
           </div>
           <div>

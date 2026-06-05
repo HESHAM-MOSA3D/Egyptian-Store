@@ -16,7 +16,7 @@ export function PriceDisplay({
 }: {
   /** Pre-formatted price string (e.g. from API) */
   label?: string;
-  /** Raw SYP amount to format */
+  /** Raw EGP amount to format */
   amountSyp?: number;
   size?: keyof typeof sizes;
   subdued?: boolean;
