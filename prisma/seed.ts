@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
-import { productDemoImage } from "../lib/product-images";
 
 if (
   process.env.NODE_ENV === "production" &&
@@ -15,7 +14,7 @@ if (
 const prisma = new PrismaClient();
 
 function images(seed: string) {
-  return JSON.stringify([productDemoImage(seed)]);
+  return JSON.stringify([seed]);
 }
 
 async function main() {
@@ -69,7 +68,6 @@ async function main() {
     { cat: skin, name: "مقشر لطيف", seed: "gentle-scrub", price: 7, stock: 25, desc: "تقشير أسبوعي لطيف" },
     { cat: creams, name: "لوشن الجسم الفانيلا", seed: "body-lotion-vanilla", price: 9, stock: 60, desc: "ترطيب طويل للجسم" },
     { cat: creams, name: "كريم اليدين بالشيا", seed: "hand-cream-shea", price: 5, stock: 80, desc: "ترطيب سريع لليدين" },
-    { cat: creams, name: "كريم القدمين", seed: "foot-cream", price: 6, stock: 45, desc: "لتشققات القدم" },
     { cat: tools, name: "فرشاة تنظيف الوجه", seed: "face-brush", price: 4, stock: 35, desc: "فرشاة سيليكون" },
     { cat: tools, name: "مجموعة إسفنجات مكياج", seed: "makeup-sponges", price: 3, stock: 90, desc: "5 قطع متنوعة" },
     { cat: perfumes, name: "عطر زهور الربيع", seed: "perfume-spring", price: 18, stock: 20, desc: "عطر نسائي خفيف" },

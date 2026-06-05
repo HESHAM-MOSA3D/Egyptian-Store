@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   LOCAL_PRODUCT_PLACEHOLDER,
   resolveProductImageSrc,
@@ -31,23 +31,32 @@ export function ProductImage({
   priority,
   className = "object-cover rounded-none",
 }: ProductImageProps) {
-  const [useLocalFallback, setUseLocalFallback] = useState(false);
+  const [imgSrc, setImgSrc] = useState<string>(LOCAL_PRODUCT_PLACEHOLDER);
 
-  const resolved = useLocalFallback
-    ? LOCAL_PRODUCT_PLACEHOLDER
-    : resolveProductImageSrc(src, productId);
+  useEffect(() => {
+    try {
+      const resolved = resolveProductImageSrc(src, productId);
+      if (resolved && (resolved.startsWith("http") || resolved.startsWith("/"))) {
+        setImgSrc(resolved);
+      } else {
+        setImgSrc(LOCAL_PRODUCT_PLACEHOLDER);
+      }
+    } catch {
+      setImgSrc(LOCAL_PRODUCT_PLACEHOLDER);
+    }
+  }, [src, productId]);
 
-  const isRemote = resolved.startsWith("http");
+  const isRemote = imgSrc.startsWith("http");
   const imageClass = cn(className);
 
   const handleError = () => {
-    if (!useLocalFallback) setUseLocalFallback(true);
+    setImgSrc(LOCAL_PRODUCT_PLACEHOLDER);
   };
 
   if (fill) {
     return (
       <Image
-        src={resolved}
+        src={imgSrc}
         alt={alt}
         fill
         sizes={sizes}
@@ -61,7 +70,7 @@ export function ProductImage({
 
   return (
     <Image
-      src={resolved}
+      src={imgSrc}
       alt={alt}
       width={width ?? 80}
       height={height ?? 80}
