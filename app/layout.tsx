@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import { CartDrawerProvider } from "@/components/shop/cart-drawer-provider";
 import { MobileBottomNav } from "@/components/shop/mobile-bottom-nav";
-// @ts-ignore
 import "./globals.css";
 
 const cairo = Cairo({
