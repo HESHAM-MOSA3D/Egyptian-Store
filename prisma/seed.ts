@@ -31,7 +31,7 @@ async function main() {
       storeNameAr: "مركز التجميل للجملة",
       usdToSypRate: 15000,
       roundingMode: "NEAREST_1000",
-      whatsappNumber: "963911223344",
+      whatsappNumber: "01015873407",
       deliveryNoteAr: "التوصيل متاح داخل المدينة خلال 24-48 ساعة",
     },
   });

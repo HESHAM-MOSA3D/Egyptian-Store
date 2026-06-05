@@ -1,89 +1,48 @@
-/** Local fallback when remote image fails */
-
 export const LOCAL_PRODUCT_PLACEHOLDER = "/images/product-placeholder.png";
 
-
-
-/** Deterministic demo photo (JPEG) — works with next/image */
-
 export function productDemoImage(seed: string): string {
+  const normalizedSeed = seed?.toLowerCase().trim() || "";
 
-  const safe =
+  const map: Record<string, string> = {
+    "serum-vitamin-c": "https://images.unsplash.com/photo-1612810436541-336d2e8b2a15?auto=format&fit=crop&w=600&q=80",
+    "toner-rose": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80",
+    "sunscreen-spf50": "https://images.unsplash.com/photo-1616683693504-3ea7e9ad3c0b?auto=format&fit=crop&w=600&q=80",
+    "gentle-scrub": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=600&q=80",
+    "body-lotion-vanilla": "https://images.unsplash.com/photo-1620917669790-3f0b6c3c3a45?auto=format&fit=crop&w=600&q=80",
+    "perfume-oud": "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80",
+    "makeup-sponges": "https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=600&q=80",
+    "face-brush": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=80",
+  };
 
-    seed
-
-      .trim()
-
-      .toLowerCase()
-
-      .replace(/[^a-z0-9-]+/g, "-")
-
-      .replace(/^-+|-+$/g, "") || "product";
-
-  return `https://picsum.photos/seed/${safe}/400/400`;
-
+  return map[normalizedSeed] || "https://images.unsplash.com/photo-1585386959984-a41552231693?auto=format&fit=crop&w=600&q=80";
 }
-
-
-
-export const REMOTE_PRODUCT_PLACEHOLDER = productDemoImage("default-product");
-
-
-
-/** Normalize URLs — migrate legacy placehold.co (Arabic text showed as ????) */
 
 export function resolveProductImageSrc(
-
   src?: string | null,
-
   productId?: string
-
 ): string {
-
-  const trimmed = src?.trim();
-
-  if (!trimmed) {
-
+  if (!src || src.trim() === "" || src === "undefined" || src === "null") {
     return productId
-
       ? productDemoImage(productId)
-
       : LOCAL_PRODUCT_PLACEHOLDER;
-
   }
 
-  if (trimmed.includes("placehold.co")) {
-
+  if (src.includes("placehold.co") || src.includes("placeholder")) {
     return productId
-
       ? productDemoImage(productId)
-
-      : REMOTE_PRODUCT_PLACEHOLDER;
-
+      : LOCAL_PRODUCT_PLACEHOLDER;
   }
 
-  return trimmed;
-
+  return src;
 }
-
-
 
 export function normalizeProductImages(
-
   urls: string[],
-
   productId: string
-
 ): string[] {
+  if (!urls || urls.length === 0) {
+    return [productDemoImage(productId)];
+  }
 
-  const normalized = urls.map((u) => resolveProductImageSrc(u, productId));
-
-  return normalized.length > 0
-
-    ? normalized
-
-    : [productDemoImage(productId)];
-
+  return urls.map((u) => resolveProductImageSrc(u, productId));
 }
-
-
