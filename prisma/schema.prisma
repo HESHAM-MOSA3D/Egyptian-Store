@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum OutOfStockBehavior {
+  HIDE
+  DISABLE
+  GRAYED
+}
+
+enum RoundingMode {
+  NEAREST_500
+  NEAREST_1000
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  nameAr    String
+  slug      String    @unique
+  sortOrder Int       @default(0)
+  isActive  Boolean   @default(true)
+  products  Product[]
+}
+
+model Product {
+  id                 String             @id @default(cuid())
+  categoryId         String
+  category           Category           @relation(fields: [categoryId], references: [id])
+  nameAr             String
+  descriptionAr      String?
+  images             String
+  priceUsd           Float
+  stockQty           Int                @default(0)
+  hasVariants        Boolean            @default(false)
+  isActive           Boolean            @default(true)
+  isHidden           Boolean            @default(false)
+  outOfStockBehavior OutOfStockBehavior @default(GRAYED)
+  variants           ProductVariant[]
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+}
+
+model ProductVariant {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  labelAr   String
+  sku       String?
+  priceUsd  Float?
+  stockQty  Int     @default(0)
+  sortOrder Int     @default(0)
+  isActive  Boolean @default(true)
+}
+
+model Settings {
+  id                String       @id @default("singleton")
+  storeNameAr       String       @default("مركز التجميل")
+  storeDescriptionAr String?
+  usdToSypRate      Float        @default(15000)
+  roundingMode      RoundingMode @default(NEAREST_1000)
+  whatsappNumber    String       @default("963900000000")
+  deliveryNoteAr    String?
+}
+
+model Customer {
+  id           String   @id @default(cuid())
+  name         String
+  phone        String   @unique
+  address      String
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
