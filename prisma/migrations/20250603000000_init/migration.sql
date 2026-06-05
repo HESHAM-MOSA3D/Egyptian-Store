@@ -44,7 +44,7 @@ CREATE TABLE "Settings" (
     "storeNameAr" TEXT NOT NULL DEFAULT 'مركز التجميل',
     "usdToSypRate" REAL NOT NULL DEFAULT 15000,
     "roundingMode" TEXT NOT NULL DEFAULT 'NEAREST_1000',
-    "whatsappNumber" TEXT NOT NULL DEFAULT '963900000000',
+    "whatsappNumber" TEXT NOT NULL DEFAULT '201015873407',
     "deliveryNoteAr" TEXT
 );
 

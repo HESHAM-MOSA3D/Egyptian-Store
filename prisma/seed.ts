@@ -30,7 +30,7 @@ async function main() {
       storeNameAr: "مركز التجميل للجملة",
       usdToSypRate: 15000,
       roundingMode: "NEAREST_1000",
-      whatsappNumber: "01015873407",
+      whatsappNumber: "201015873407",
       deliveryNoteAr: "التوصيل متاح داخل المدينة خلال 24-48 ساعة",
     },
   });
@@ -235,8 +235,8 @@ async function main() {
   await prisma.customer.create({
     data: {
       name: "تاجر تجريبي",
-      phone: "963911223344",
-      address: "دمشق — شارع التجارة",
+      phone: "201015873407",
+      address: "فرشوط — العركي — بجوار موقف العركي",
       passwordHash: demoPasswordHash,
     },
   });

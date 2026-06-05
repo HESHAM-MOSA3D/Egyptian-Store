@@ -63,7 +63,7 @@ model Settings {
   storeDescriptionAr String?
   usdToSypRate      Float        @default(15000)
   roundingMode      RoundingMode @default(NEAREST_1000)
-  whatsappNumber    String       @default("963900000000")
+  whatsappNumber    String       @default("201015873407")
   deliveryNoteAr    String?
 }
 
